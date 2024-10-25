@@ -1,0 +1,104 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-left: 100px solid #34d399;
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    .logo {
+      cursor: pointer;
+      mix-blend-mode: difference;
+    }
+
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+
+      .nav-item {
+        position: relative;
+
+        .nav-link {
+          font-weight: 700;
+          font-size: 1.1rem;
+          color: white;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          cursor: pointer;
+          padding: 0.5rem 1rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: rgba(52, 211, 153, 0.1);
+          }
+        }
+      }
+    }
+
+    .mobile-menu {
+      display: none;
+      cursor: pointer;
+
+      @media (max-width: 768px) {
+        display: block;
+      }
+
+      button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mobile-nav {
+    display: none;
+    overflow: hidden;
+
+    @media (max-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+    }
+
+    .mobile-link {
+      display: block;
+      padding: 1rem;
+      color: white;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: rgba(52, 211, 153, 0.1);
+        padding-left: 1.5rem;
+      }
+    }
+  }
+}

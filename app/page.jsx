@@ -1,16 +1,25 @@
+//home.jsx
 import React from 'react';
-import "./sass/Home.scss"
-import Image from 'next/image';
+import "../sass/Home.scss";
+import Link from 'next/link';
+import NavBar from '../components/navbar';
 
 function HomePage() {
   return (
-    <div className='bg-[#000000] min-h-screen main-container'>
-        <div className="container">
-            <div className="overlay">
-            <Image src="/assets/images/bg.jpg" alt="hero" width={1920} height={1080} />
+    <div className='main-container'>
+      <video  autoPlay loop muted playsInline className="background-video">
+        <source src="/assets/videos/bg1.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="overlay">
+        <div className="content">
+          <div className="hero-section">
+            <div className="nav">
+              <NavBar/>
             </div>
+          </div>
         </div>
-      <h1 className='text-white'>Home</h1>
+      </div>
     </div>
   );
 }

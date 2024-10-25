@@ -20,6 +20,7 @@ const CustomCursor = () => {
     };
   }, []);
 
+
   useEffect(() => {
     const animateCursor = () => {
       setCirclePosition((prev) => ({
@@ -50,17 +51,17 @@ const CustomCursor = () => {
       <div
         className="fixed z-50 pointer-events-none border-2 rounded-full"
         style={{
-          width: '40px',
-          height: '40px',
+          width: '50px',
+          height: '50px',
           transform: `translate3d(${circlePosition.x - 20}px, ${circlePosition.y - 20}px, 0)`,
-          borderColor: 'rgba(0, 150, 255, 0.9)',
+          borderColor: '#34d399',
           backgroundColor: 'transparent',
           transition: 'border-color 0.3s ease',
         }}
       >
         {/* Center dot inside the circle */}
         <div
-          className="absolute rounded-full bg-blue-500"
+          className="absolute rounded-full bg-emerald-500"
           style={{
             width: '8px',
             height: '8px',
@@ -71,7 +72,6 @@ const CustomCursor = () => {
         />
       </div>
 
-      {/* Trail effect for dynamic movement */}
       {trailPositions.map((pos, index) => (
         <div
           key={index}
@@ -80,7 +80,7 @@ const CustomCursor = () => {
             width: `${30 - index * 2}px`,
             height: `${30 - index * 2}px`,
             transform: `translate3d(${pos.x - 15}px, ${pos.y - 15}px, 0)`,
-            backgroundColor: `rgba(0, 150, 255, ${0.2 - index * 0.015})`,
+            backgroundColor: `rgba(45, 212, 191, ${0.2 - index * 0.015})`,
             filter: 'blur(4px)',
             transition: 'transform 0.1s ease-out',
           }}
