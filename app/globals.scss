@@ -1,0 +1,19 @@
+// Import Tailwind's base styles
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Your custom Sass styles
+body {
+  font-family: 'Rubik', sans-serif; // Example
+}
+
+// Example of a Sass variable and mixin
+$primary-color: #4a90e2;
+
+@mixin button {
+  padding: 1rem;
+  background-color: $primary-color;
+  color: #fff;
+  border-radius: 8px;
+}
