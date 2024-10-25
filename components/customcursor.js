@@ -10,7 +10,6 @@ const CustomCursor = () => {
   
   const requestRef = useRef(null);
 
-  // Mouse position updater
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -21,21 +20,20 @@ const CustomCursor = () => {
     };
   }, []);
 
-  // Animate cursor positions smoothly
   useEffect(() => {
     const animateCursor = () => {
       setCirclePosition((prev) => ({
-        x: prev.x + (mousePosition.x - prev.x) * 0.1, // Smoothly move main circle
+        x: prev.x + (mousePosition.x - prev.x) * 0.1, 
         y: prev.y + (mousePosition.y - prev.y) * 0.1,
       }));
 
       setDotPosition((prev) => ({
-        x: prev.x + (mousePosition.x - prev.x) * 0.2, // Dot moves faster than the circle
+        x: prev.x + (mousePosition.x - prev.x) * 0.2, 
         y: prev.y + (mousePosition.y - prev.y) * 0.2,
       }));
 
       setTrailPositions((prev) => [
-        ...prev.slice(-12), // Limit trail length for performance
+        ...prev.slice(-12), 
         { x: mousePosition.x, y: mousePosition.y },
       ]);
 
