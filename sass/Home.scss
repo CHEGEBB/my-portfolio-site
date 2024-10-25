@@ -1,50 +1,100 @@
+// Home.scss
 .main-container {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(purple, 0.1), rgba(blue, 0.1));
+    z-index: 0;
+    animation: gradientShift 15s ease infinite;
+  }
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.dynamic-text {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.download-btn {
+  background: linear-gradient(to right, #9333ea, #3b82f6);
+  color: white;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+}
+
+.hire-btn {
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  border: 2px solid transparent;
+  background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, #ff6b6b, #4ecdc4) border-box;
   overflow: hidden;
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, #ec4899, #8b5cf6);
+    z-index: -1;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
 }
 
-.background-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+.image-right {
+  img {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(147,51,234,0.2), rgba(59,130,246,0.2));
+    filter: blur(20px);
+    z-index: -1;
+  }
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Adjust overlay transparency as needed */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
-.content {
-  position: relative;
-  width: 100%;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-.hero-section {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  width: 100%;
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
+@media (max-width: 768px) {
+  .intro-left {
+    text-align: center;
+    
+    .flex {
+      justify-content: center;
+    }
+  }
+  
+  .image-right {
+    margin-top: 2rem;
+    
+    img {
+      max-width: 20rem;
+    }
+  }
 }
